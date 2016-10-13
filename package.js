@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'nicolaslopezj:orion-exporter',
-  summary: 'Export and import all your Orion data',
-  version: '1.1.6',
-  git: 'https://github.com/nicolaslopezj/orion-exporter'
+  name: 'rwatts:scorpiusjs-exporter',
+  summary: 'Export and import all your Scorpius data',
+  version: '0.1.0',
+  git: 'https://github.com/rwatts3/scorpiusjs-exporter'
 });
 
 Npm.depends({
@@ -11,9 +11,9 @@ Npm.depends({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
-  api.use(['meteor-platform', 'orionjs:base@1.4.0', 'orionjs:dictionary@1.4.0', 'orionjs:collections@1.4.0', 'nicolaslopezj:roles@1.2.0', 'meteorhacks:picker@1.0.3', 'http']);
+  api.use(['meteor-platform', 'scorpiusjs:base@0.3.0', 'scorpiusjs:dictionary@0.3.0', 'scorpiusjs:collections@0.3.0', 'nicolaslopezj:roles@1.2.0', 'meteorhacks:picker@1.0.3', 'http']);
 
-  api.use(['orionjs:bootstrap@1.4.0', 'orionjs:materialize@1.4.0', 'orionjs:pages@1.4.0'], 'client', { weak: true });
+  api.use(['scorpiusjs:bootstrap@0.3.0', 'scorpiusjs:materialize@0.3.0', 'scorpiusjs:pages@0.3.0'], 'client', { weak: true });
 
   api.addFiles('exporter.js');
   api.addFiles('exporter_server.js', 'server');

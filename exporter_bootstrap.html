@@ -1,9 +1,9 @@
-<template name="nicolaslopezj_orionExporter_bootstrap">
-  {{# Layout template="orionBootstrapSmallContentOffset" }}
-    {{# Layout template="orionBootstrapTitle" }}
+<template name="exporter_scorpiusExporter_bootstrap">
+  {{# Layout template="scorpiusBootstrapSmallContentOffset" }}
+    {{# Layout template="scorpiusBootstrapTitle" }}
       Export/Import
     {{/ Layout }}
-    {{# Layout template="orionBootstrapContentContainer" }}
+    {{# Layout template="scorpiusBootstrapContentContainer" }}
       {{# with currentError }}
         <div class="alert alert-danger">
           <b>[{{ error }}]</b> {{ reason }}
@@ -13,7 +13,7 @@
         <b>Export</b>
       </p>
       <p class="help-block">
-        Export all your Orion collections and the dictionary.
+        Export all your Scorpius collections and the dictionary.
       </p>
       <p>
         <a href="#" class="btn btn-default btn-export">Export</a>
@@ -23,7 +23,7 @@
         <b>Import</b>
       </p>
       <p class="help-block">
-        Remove all the data of your Orion collections and the dictionary and replaces it with the new one.
+        Remove all the data of your Scorpius collections and the dictionary and replaces it with the new one.
       </p>
       {{# if isLoading }}
       <p>

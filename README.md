@@ -1,7 +1,9 @@
-Orion Exporter
+Scorpius Exporter
 ==============
 
-Export and import all your Orion data.
+**Forked from `nicolaslopezj:orion-exporter`**
+
+Export and import all your Scorpius data.
 
 It can export all the collections and the dictionary.
 
@@ -12,7 +14,7 @@ The ids of the documents will be kept.
 ### Installing
 
 ```
-meteor add nicolaslopezj:orion-exporter
+meteor add exporter:scorpius-exporter
 ```
 
 By default the tab is not shown, but you can navigate to ```/export```.
@@ -25,4 +27,4 @@ Options.set('showExportTab', true);
 
 #### Security
 
-Orion Exportes uses [```nicolaslopezj:roles```](http://github.com/nicolaslopezj/roles) to secure the import and export. The name of the action is ```nicolaslopezj.orionExport```.
+Scorpius Exportes uses [```exporter:roles```](http://github.com/exporter/roles) to secure the import and export. The name of the action is ```exporter.scorpiusExport```.

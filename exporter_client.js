@@ -3,39 +3,39 @@
  */
 Tracker.autorun(function() {
   var index = Options.get('showExportTab') ? 110 : undefined; // null to hide from the tabs
-  orion.links.add({
+  scorpius.links.add({
     index: index,
-    identifier: 'orion-export',
+    identifier: 'scorpius-export',
     title: 'Export/Import',
-    routeName: 'nicolaslopezj.orionExport',
-    activeRouteRegex: 'nicolaslopezj.orionExport',
-    permission: 'nicolaslopezj.orionExport'
+    routeName: 'exporter.scorpiusExport',
+    activeRouteRegex: 'exporter.scorpiusExport',
+    permission: 'exporter.scorpiusExport'
   });
 });
 
 
-ReactiveTemplates.onRendered('orionExport', function() {
-  Session.set('orionExport_error', null);
-  Session.set('orionExport_isLoading', false);
+ReactiveTemplates.onRendered('scorpiusExport', function() {
+  Session.set('scorpiusExport_error', null);
+  Session.set('scorpiusExport_isLoading', false);
 });
 
-ReactiveTemplates.helpers('orionExport', {
+ReactiveTemplates.helpers('scorpiusExport', {
   currentError: function() {
-    return Session.get('orionExport_error');
+    return Session.get('scorpiusExport_error');
   },
   isLoading: function() {
-    return Session.get('orionExport_isLoading');
+    return Session.get('scorpiusExport_isLoading');
   }
 });
 
-ReactiveTemplates.events('orionExport', {
+ReactiveTemplates.events('scorpiusExport', {
   'click .btn-export': function(event, template) {
     var key = Roles.keys.request(Meteor.userId());
     var url = '/admin/download-export/' + key;
     window.open(url);
   },
   'change .input-import': function(event, template) {
-    Session.set('orionExport_isLoading', true);
+    Session.set('scorpiusExport_isLoading', true);
     var key = Roles.keys.request(Meteor.userId());
     var url = '/admin/import-data/' + key;
     var file = event.currentTarget.files[0];
@@ -51,19 +51,19 @@ ReactiveTemplates.events('orionExport', {
         }, function(error, result) {
           if (error) {
             console.log(error);
-            Session.set('orionExport_error', error);
+            Session.set('scorpiusExport_error', error);
           } else {
             if (result.content != 'ok') {
-              Session.set('orionExport_error', new Meteor.Error('unknown-error', 'A unknown error has ocurred'));
+              Session.set('scorpiusExport_error', new Meteor.Error('unknown-error', 'A unknown error has ocurred'));
             }
           }
-          Session.set('orionExport_isLoading', false);
+          Session.set('scorpiusExport_isLoading', false);
         })
       }
       reader.onerror = function (_event) {
         console.log(_event);
-        Session.set('orionExport_error', _event);
-        Session.set('orionExport_isLoading', false);
+        Session.set('scorpiusExport_error', _event);
+        Session.set('scorpiusExport_isLoading', false);
       }
     }
   }

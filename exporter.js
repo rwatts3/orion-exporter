@@ -1,41 +1,41 @@
 Options.init('showExportTab', false);
-exportPages = _.has(Package, 'orionjs:pages');
+exportPages = _.has(Package, 'scorpiusjs:pages');
 collections = [];
 
-orion.collections.onCreated(function(collection) {
+scorpius.collections.onCreated(function(collection) {
   collections.push(this);
 })
 
 if (exportPages) {
-  pages = orion.pages.collection;
+  pages = scorpius.pages.collection;
 }
 
 
 /**
  * Init the template name variable
  */
-ReactiveTemplates.request('orionExport', 'nicolaslopezj_orionExporter_bootstrap');
+ReactiveTemplates.request('scorpiusExport', 'exporter_scorpiusExporter_bootstrap');
 
-if (_.has(Package, 'orionjs:materialize')) {
-  ReactiveTemplates.set('orionExport', 'nicolaslopezj_orionExporter_materialize');
+if (_.has(Package, 'scorpiusjs:materialize')) {
+  ReactiveTemplates.set('scorpiusExport', 'exporter_scorpiusExporter_materialize');
 }
 
 /**
  * Init the role action
  */
-Roles.registerAction('nicolaslopezj.orionExport', true);
+Roles.registerAction('exporter.scorpiusExport', true);
 
 /**
  * Register the route
  */
 RouterLayer.route('/admin/export', {
   layout: 'layout',
-  template: 'orionExport',
-  name: 'nicolaslopezj.orionExport',
+  template: 'scorpiusExport',
+  name: 'exporter.scorpiusExport',
   reactiveTemplates: true
 });
 
 /**
  * Ensure user is logged in
  */
-orion.accounts.addProtectedRoute('nicolaslopezj.orionExport');
+scorpius.accounts.addProtectedRoute('exporter.scorpiusExport');
